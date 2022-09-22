@@ -13,6 +13,12 @@ Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Windows
 
-oh-my-posh init pwsh --config (Join-Path $env:POSH_THEMES_PATH -ChildPath aliens.omp.json) | Invoke-Expression
+try {
+    oh-my-posh init pwsh --config (Join-Path $env:POSH_THEMES_PATH -ChildPath aliens.omp.json) | Invoke-Expression -ErrorAction Stop
+} catch {
+    winget install JanDeDobbeleer.OhMyPosh -s winget --location $env:USERPROFILE\Documents\Powershell
+    oh-my-posh init pwsh --config (Join-Path $env:POSH_THEMES_PATH -ChildPath aliens.omp.json) | Invoke-Expression -ErrorAction Stop
+}
+
 
 # ALIAS
