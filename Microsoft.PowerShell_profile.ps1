@@ -7,6 +7,10 @@ Write-Host "PowerShell Remoting:`t$($PSVersionTable.PSRemotingProtocolVersion)" 
 Import-Module -NAME PSReadLine
 Import-Module -Name Terminal-Icons
 Import-Module -Name posh-git
+Import-Module -Name Az.Monitor
+Import-Module -Name Az.ResourceGraph
+Import-Module -Name Az.Accounts
+Import-Module -Name Az.Resources
 
 # SETTINGS AND PARAMETERS
 Set-PSReadLineOption -PredictionSource History
